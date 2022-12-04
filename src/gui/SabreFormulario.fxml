@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane prefHeight="478.0" prefWidth="627.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17">
+<AnchorPane prefHeight="478.0" prefWidth="627.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SabreFormularioController">
    <children>
       <GridPane layoutX="22.0" layoutY="15.0" prefHeight="438.0" prefWidth="514.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="93.0" AnchorPane.topAnchor="20.0">
         <columnConstraints>
@@ -41,19 +40,19 @@
             <Label text="GALAXIAS" GridPane.rowIndex="6" />
             <Label text="MODELO SENSOR" GridPane.rowIndex="7" />
             <Label text="VALIDADE SENSOR" GridPane.rowIndex="8" />
-            <TextField disable="true" editable="false" GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ComboBox prefHeight="26.0" prefWidth="301.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <ComboBox prefHeight="26.0" prefWidth="309.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField fx:id="txtId" disable="true" editable="false" GridPane.columnIndex="1" />
+            <TextField fx:id="txtJedi" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtFabricacao" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbxSituacao" prefHeight="26.0" prefWidth="301.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbxModelo" prefHeight="26.0" prefWidth="309.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="txtModeloBotao" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="txtGalaxias" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="txtModeloSensor" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="txtValidadeSensor" GridPane.columnIndex="1" GridPane.rowIndex="8" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="130.0" text="SALVAR" />
-                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="146.0" text="CANCELAR" />
+                  <Button fx:id="btnSalvar" mnemonicParsing="false" onAction="#onBtnSalvarAction" prefHeight="26.0" prefWidth="130.0" text="SALVAR" />
+                  <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#onBtnCancelarAction" prefHeight="26.0" prefWidth="146.0" text="CANCELAR" />
                </children>
             </HBox>
          </children>
