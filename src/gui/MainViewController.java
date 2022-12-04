@@ -51,7 +51,7 @@ public class MainViewController implements Initializable {
 	
 	@FXML
 	public void onMenuItemSabreListarAction() {
-		System.out.println("Listar Sabre");
+		loadView("/gui/SabreListagem.fxml");
 	}
 
 	@FXML
