@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19">
+<VBox prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SabreListaController">
    <children>
       <Label text="Listagem dos Sabres">
          <VBox.margin>
@@ -18,17 +17,17 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TableView>
+      <TableView fx:id="tableViewSabres">
         <columns>
-          <TableColumn prefWidth="64.0" text="ID" />
-            <TableColumn prefWidth="272.0" text="JEDI" />
-            <TableColumn prefWidth="90.0" text="FABRICACAO" />
-            <TableColumn prefWidth="75.0" text="SITUACAO" />
-          <TableColumn prefWidth="77.0" text="MODELO" />
-            <TableColumn prefWidth="57.0" text="BOTAO" />
-            <TableColumn prefWidth="92.0" text="GALAXIA" />
-            <TableColumn prefWidth="69.0" text="SENSOR" />
-            <TableColumn prefWidth="72.0" text="VALIDADE" />
+          <TableColumn fx:id="tableColumnId" prefWidth="64.0" text="ID" />
+            <TableColumn fx:id="tableColumnJedi" prefWidth="272.0" text="JEDI" />
+            <TableColumn fx:id="tableColumnFabricacao" prefWidth="90.0" text="FABRICACAO" />
+            <TableColumn fx:id="tableColumnSituacao" prefWidth="75.0" text="SITUACAO" />
+          <TableColumn fx:id="tableColumnModelo" prefWidth="77.0" text="MODELO" />
+            <TableColumn fx:id="tableColumnBotao" prefWidth="57.0" text="BOTAO" />
+            <TableColumn fx:id="tableColumnGalaxia" prefWidth="92.0" text="GALAXIA" />
+            <TableColumn fx:id="tableColumnSensor" prefWidth="83.2000732421875" text="SENSOR" />
+            <TableColumn fx:id="tableColumnValidade" prefWidth="86.4000244140625" text="VALIDADE" />
         </columns>
       </TableView>
    </children>
