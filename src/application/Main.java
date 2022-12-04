@@ -2,6 +2,8 @@ package application;
 
 import java.io.IOException;
 
+import db.CriarBancoSQLite;
+import db.conexoes.ConexaoSQLite;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -34,9 +36,16 @@ public class Main extends Application {
 		return mainScene;
 	}
 
-
-
 	public static void main(String[] args) {
 		launch(args);
+ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
+		
+		CriarBancoSQLite criarBancoSQLite = new CriarBancoSQLite(conexaoSQLite);
+		
+		criarBancoSQLite.criarTabelaManutencao();
+
+		criarBancoSQLite.criarTabelaSabre();
+		
+		conexaoSQLite.desconectar();
 	}
 }
