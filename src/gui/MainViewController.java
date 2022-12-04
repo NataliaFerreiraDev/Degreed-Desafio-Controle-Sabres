@@ -7,6 +7,8 @@ import java.util.function.Consumer;
 
 import application.Main;
 import gui.util.Alerts;
+import gui.util.Utils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,7 +17,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import model.services.SabreService;
 
 public class MainViewController implements Initializable {
@@ -40,10 +45,11 @@ public class MainViewController implements Initializable {
 
 	@FXML
 	private MenuItem menuItemSobre;
-
+	
 	@FXML
-	public void onMenuItemSabreCadastrarAction() {
-		System.out.println("Cadastrar Sabre");
+	public void onMenuItemSabreCadastrarAction(ActionEvent event) {
+		Stage parentStage = (Stage)menuItemSabreCadastrar.getParentPopup().getOwnerWindow();
+		createDialogForm("/gui/SabreFormulario.fxml", parentStage);
 	}
 	
 	@FXML
@@ -99,6 +105,24 @@ public class MainViewController implements Initializable {
 			T controller = loader.getController();
 			initializingAction.accept(controller);
 			
+			
+		} catch (IOException ex) {
+			Alerts.showAlert("IO Exception", "Erro ao carregar a tela", ex.getMessage(), AlertType.ERROR);
+		}
+	}
+	
+	private void createDialogForm(String absoluteName, Stage parentStage) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
+			Pane pane = loader.load();
+			
+			Stage dialogStage = new Stage();
+			dialogStage.setTitle("Formulário Sabres");
+			dialogStage.setScene(new Scene(pane));
+			dialogStage.setResizable(false);
+			dialogStage.initOwner(parentStage);
+			dialogStage.initModality(Modality.WINDOW_MODAL);
+			dialogStage.showAndWait();
 			
 		} catch (IOException ex) {
 			Alerts.showAlert("IO Exception", "Erro ao carregar a tela", ex.getMessage(), AlertType.ERROR);
